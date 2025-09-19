@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Security Lab Hub - Training Environment</title>
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Critical CSS inlined for performance -->
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #0d0522 0%, #1a0d3e 50%, #2d1b69 100%);
+            --secondary-gradient: linear-gradient(135deg, #0a0419 0%, #0d0522 100%);
+            --arcanum-purple: #7c3aed;
+            --arcanum-light-purple: #a855f7;
+            --arcanum-dark-purple: #5b21b6;
+            --arcanum-deep-purple: #2d1b69;
+            --arcanum-darker: #1a0d3e;
+            --surface-color: rgba(45, 27, 105, 0.85);
+            --surface-glass: rgba(124, 58, 237, 0.1);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.8);
+            --text-light: rgba(255, 255, 255, 0.9);
+            --accent-purple: #c084fc;
+            --border-radius: 12px;
+            --shadow-sm: 0 2px 8px rgba(124, 58, 237, 0.1);
+            --shadow-md: 0 4px 12px rgba(124, 58, 237, 0.2);
+            --shadow-lg: 0 8px 24px rgba(124, 58, 237, 0.3);
+            --shadow-xl: 0 16px 40px rgba(124, 58, 237, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--secondary-gradient);
+            min-height: 100vh;
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(124, 58, 237, 0.15), transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(45, 27, 105, 0.25), transparent 60%),
+                radial-gradient(circle at 40% 40%, rgba(192, 132, 252, 0.1), transparent 50%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(124, 58, 237, 0.5);
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-item {
+            background: rgba(124, 58, 237, 0.2);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(124, 58, 237, 0.4);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(192, 132, 252, 0.4), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .warning-box {
+            background: var(--surface-color);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .warning-box h3 {
+            color: #d97706;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .warning-box p {
+            color: #92400e;
+            line-height: 1.6;
+        }
+
+        .labs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .lab-card {
+            background: var(--surface-color);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .lab-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-purple), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lab-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(124, 58, 237, 0.6);
+        }
+
+        .lab-card:hover::before {
+            opacity: 1;
+        }
+
+        .lab-header {
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .beginner { 
+            background: linear-gradient(135deg, var(--arcanum-light-purple) 0%, var(--arcanum-purple) 100%);
+        }
+        .intermediate { 
+            background: linear-gradient(135deg, var(--arcanum-purple) 0%, var(--arcanum-dark-purple) 100%);
+        }
+        .advanced { 
+            background: linear-gradient(135deg, var(--arcanum-dark-purple) 0%, var(--arcanum-deep-purple) 100%);
+        }
+        .specialized { 
+            background: linear-gradient(135deg, var(--arcanum-deep-purple) 0%, var(--arcanum-darker) 100%);
+        }
+
+        .lab-title {
+            color: white;
+            font-size: 1.375rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .lab-level {
+            color: rgba(255,255,255,0.9);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+        /* Level-specific color coding */
+        .beginner .lab-level {
+            background: rgba(34, 197, 94, 0.8); /* Green */
+            color: white;
+        }
+
+        .intermediate .lab-level {
+            background: rgba(249, 115, 22, 0.8); /* Orange */
+            color: white;
+        }
+
+        .advanced .lab-level {
+            background: rgba(239, 68, 68, 0.8); /* Red */
+            color: white;
+        }
+
+        .specialized .lab-level {
+            background: rgba(168, 85, 247, 0.8); /* Purple */
+            color: white;
+        }
+
+        .lab-content {
+            padding: 1.5rem;
+        }
+
+        .lab-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .lab-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .lab-features li {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            position: relative;
+            padding-left: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .lab-features li::before {
+            content: "●";
+            position: absolute;
+            left: 0;
+            color: var(--arcanum-light-purple);
+            font-weight: bold;
+        }
+
+        .lab-link {
+            display: block;
+            background: linear-gradient(135deg, var(--arcanum-purple) 0%, var(--arcanum-dark-purple) 100%);
+            color: white;
+            text-decoration: none;
+            padding: 0.875rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(124, 58, 237, 0.4);
+        }
+
+        .lab-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(192, 132, 252, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .lab-link:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, var(--arcanum-dark-purple) 0%, var(--arcanum-deep-purple) 100%);
+            border-color: var(--accent-purple);
+        }
+
+        .lab-link:hover::before {
+            left: 100%;
+        }
+
+        .status-indicator {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-purple);
+            box-shadow: 0 0 0 2px rgba(192, 132, 252, 0.3);
+            animation: pulse-modern 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse-modern {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% { 
+                transform: scale(1.5);
+                opacity: 0.7;
+            }
+        }
+
+        .footer {
+            text-align: center;
+            color: var(--text-light);
+            margin-top: 4rem;
+            padding: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 1024px) {
+            .labs-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .labs-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .stats {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .stat-item {
+                width: fit-content;
+            }
+        }
+
+        /* Modern scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Smooth focus states */
+        .lab-link:focus {
+            outline: 2px solid rgba(255, 255, 255, 0.5);
+            outline-offset: 2px;
+        }
+
+        /* Tab Navigation */
+        .tab-navigation {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            background: rgba(124, 58, 237, 0.1);
+            border-radius: 12px;
+            padding: 6px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tab-button {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, var(--arcanum-purple) 0%, var(--arcanum-dark-purple) 100%);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .tab-button:hover:not(.active) {
+            color: var(--text-light);
+            background: rgba(124, 58, 237, 0.2);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Arcanum AI Sec Resource Hub</h1>
+            <p class="subtitle">Resources for AI/LLM Security</p>
+            <div class="stats">
+                <div class="stat-item">21 Active Labs</div>
+                <div class="stat-item">4 Competitions</div>
+                <div class="stat-item">4 Bug Bounties</div>
+                <div class="stat-item">Multiple Difficulty Levels</div>
+            </div>
+        </header>
+
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-button active" onclick="switchTab('labs')">Labs</button>
+            <button class="tab-button" onclick="switchTab('competitions')">Competitions</button>
+            <button class="tab-button" onclick="switchTab('bounties')">Bug Bounties</button>
+        </div>
+
+        <!-- Labs Tab -->
+        <div id="labs-tab" class="tab-content active">
+        <div class="labs-grid">
+            <!-- Intro/Beginner Labs -->
+            <div class="lab-card">
+                <div class="lab-header beginner">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">Blind XSS Demo</h2>
+                    <p class="lab-level">Intro Level</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Introduction to Blind XSS vulnerabilities through an interactive demo. Learn how XSS payloads work when you can't see the immediate results.
+                    </p>
+                    <a href="http://207.244.244.11:8001" class="lab-link" target="_blank">Start Demo →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header intermediate">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">Broken LLM Integration App</h2>
+                    <p class="lab-level">Beginner-Intermediate Level</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Comprehensive vulnerable LLM application demonstrating common integration flaws. Based on the open-source project exploring real-world AI security vulnerabilities in web applications.
+                    </p>
+                    <ul class="lab-features">
+                        <li>Direct Prompt Injection</li>
+                        <li>Indirect Prompt Injection</li>
+                        <li>Prompt Leaking</li>
+                        <li>P2SQL Injection</li>
+                        <li>LLM2Shell</li>
+                        <li><a href="https://github.com/13o-bbr-bbq/Broken_LLM_Integration_App" target="_blank" style="color: #c084fc; text-decoration: none;">📂 View Source Code</a></li>
+                    </ul>
+                    <a href="http://207.244.244.11:5000" class="lab-link" target="_blank">Start Lab →</a>
+                </div>
+            </div>
+
+            <!-- Intermediate Labs -->
+            <div class="lab-card">
+                <div class="lab-header intermediate">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">Gandalf - Lakera AI</h2>
+                    <p class="lab-level">Beginner-Advanced Level</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Popular online prompt injection challenge by Lakera AI. Progressive levels teaching fundamental to advanced prompt engineering and security bypass techniques.
+                    </p>
+                    <ul class="lab-features">
+                        <li>Progressive difficulty levels</li>
+                        <li>Real-time feedback</li>
+                        <li>Community leaderboards</li>
+                        <li>Fundamental prompt injection</li>
+                        <li>External hosted challenge</li>
+                    </ul>
+                    <a href="https://gandalf.lakera.ai/" class="lab-link" target="_blank">Start Challenge →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header intermediate">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">HackMerlin</h2>
+                    <p class="lab-level">Beginner-Intermediate Level</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        The alternative wizard challenge for prompt injection!
+                    </p>
+                    <ul class="lab-features">
+                        <li>Advanced prompt injection</li>
+                        <li>Interactive challenge format</li>
+                        <li>External hosted platform</li>
+                    </ul>
+                    <a href="https://hackmerlin.io/" class="lab-link" target="_blank">Start Challenge →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header intermediate">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">Immersive Labs Prompt Injection</h2>
+                    <p class="lab-level">Beginner-Intermediate Level</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Professional prompt injection training platform by Immersive Labs with 10 progressive levels. Learn to hack AI chatbots by extracting secret passwords through increasingly sophisticated injection techniques.
+                    </p>
+                    <ul class="lab-features">
+                        <li>10 levels with increasing difficulty</li>
+                        <li>Secret password extraction challenges</li>
+                        <li>DLP and word filtering bypasses</li>
+                        <li>Professional cybersecurity training</li>
+                        <li>Hands-on AI vulnerability exploration</li>
+                        <li>Free access challenge platform</li>
+                    </ul>
+                    <a href="https://prompting.ai.immersivelabs.com/" class="lab-link" target="_blank">Start Challenge →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header beginner">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">GPT Prompt Attack</h2>
+                    <p class="lab-level">Beginner Level</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Interactive web-based game challenging users to craft the shortest possible prompt that can trick an AI assistant into revealing its system prompt's secret key. Perfect introduction to prompt injection concepts.
+                    </p>
+                    <ul class="lab-features">
+                        <li>Minimalist prompt crafting challenge</li>
+                        <li>Secret key extraction goal</li>
+                        <li>Multiple difficulty levels</li>
+                        <li>Hall of Fame leaderboard</li>
+                        <li>Gamified prompt engineering</li>
+                        <li>System prompt vulnerability exploration</li>
+                    </ul>
+                    <a href="https://gpa.43z.one/" class="lab-link" target="_blank">Start Game →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header intermediate">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">TensorTrust</h2>
+                    <p class="lab-level">Intermediate Level</p>
+                    <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                        <span style="background: rgba(239, 68, 68, 0.8); color: white; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.65rem; font-weight: 600; text-transform: uppercase;">⚠️ Buggy</span>
+                    </div>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        UC Berkeley research platform combining attack and defense scenarios in a gamified environment. Players create defense prompts to protect assets and craft attack prompts to gain unauthorized access through prompt injection.
+                    </p>
+                    <ul class="lab-features">
+                        <li>Attack vs Defense game mechanics</li>
+                        <li>126K+ prompt injection dataset</li>
+                        <li>Research benchmark contributions</li>
+                        <li>Leaderboard competition system</li>
+                        <li>Open-source research project</li>
+                        <li>UC Berkeley developed platform</li>
+                    </ul>
+                    <a href="https://tensortrust.ai/" class="lab-link" target="_blank">Join Research →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header intermediate">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">PromptMe - OWASP LLM Top 10</h2>
+                    <p class="lab-level">Intermediate-Advanced Level</p>
+                    <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                        <span style="background: rgba(251, 191, 36, 0.8); color: #000; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.65rem; font-weight: 600; text-transform: uppercase;">🚧 Under Construction</span>
+                        <span style="background: rgba(239, 68, 68, 0.8); color: white; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.65rem; font-weight: 600; text-transform: uppercase;">⚠️ Buggy</span>
+                    </div>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Educational CTF-style platform with 10 hands-on challenges based on OWASP LLM Top 10 vulnerabilities. Runs locally using Python and Ollama framework with open-source models like Mistral and Llama3.
+                    </p>
+                    <ul class="lab-features">
+                        <li>10 OWASP LLM Top 10 challenges</li>
+                        <li>CTF-style interactive format</li>
+                        <li>Local setup with no API keys required</li>
+                        <li>Hints and solutions provided</li>
+                        <li>Real-world LLM vulnerability scenarios</li>
+                        <li><a href="https://github.com/R3dShad0w7/PromptMe" target="_blank" style="color: #c084fc; text-decoration: none;">📂 View Source Code</a></li>
+                    </ul>
+                    <a href="http://207.244.244.11:9000/" class="lab-link" target="_blank">Start Challenges →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header intermediate">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">SecOps Group - HackAI Mock Lab</h2>
+                    <p class="lab-level">Intermediate Level</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Advanced AI/ML penetration testing mock lab by The SecOps Group. Hands-on practical exercises covering AI/ML vulnerabilities including prompt injection, model attacks, and certification preparation scenarios.
+                    </p>
+                    <ul class="lab-features">
+                        <li>AI/ML penetration testing scenarios</li>
+                        <li>Certified AI/ML Pentester prep</li>
+                        <li>Advanced prompt injection challenges</li>
+                        <li>Model vulnerability assessment</li>
+                        <li>Professional certification training</li>
+                        <li>Hands-on practical exercises</li>
+                    </ul>
+                    <a href="https://hackai.mock.secops.group/" class="lab-link" target="_blank">Start Lab →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header intermediate">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">OWASP FinBot CTF Demo</h2>
+                    <p class="lab-level">Intermediate Level</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Agentic AI security CTF simulating goal manipulation attacks against AI-powered financial systems. The "Juice Shop for Agentic AI" - manipulate FinBot to approve fraudulent invoices without triggering detection.
+                    </p>
+                    <ul class="lab-features">
+                        <li>Goal manipulation vulnerabilities</li>
+                        <li>AI-powered invoice processing attacks</li>
+                        <li>Prompt injection detection evasion</li>
+                        <li>Easy, Intermediate, and Hard levels</li>
+                        <li>Financial services AI simulation</li>
+                        <li><a href="https://github.com/OWASP-ASI/finbot-ctf-demo" target="_blank" style="color: #c084fc; text-decoration: none;">📂 View Source Code</a></li>
+                    </ul>
+                    <a href="https://owasp-finbot-ctf-demo.onrender.com/index.html" class="lab-link" target="_blank">Start CTF →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header intermediate">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">HackingLLMs - JARVIS Protocol</h2>
+                    <p class="lab-level">Intermediate Level</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        JARVIS-themed cybersecurity challenge platform by Tyson0x0 featuring 4 distinct prompt injection challenges. Navigate through high-tech protocols with an Iron Man-inspired interface and competitive leaderboard system.
+                    </p>
+                    <ul class="lab-features">
+                        <li>4 JARVIS-themed prompt injection challenges</li>
+                        <li>Iron Man-inspired cyberpunk interface</li>
+                        <li>Operator ranking leaderboard</li>
+                        <li>High-tech challenge protocols</li>
+                        <li>Interactive sci-fi narrative framework</li>
+                        <li>Created by Tyson0x0</li>
+                    </ul>
+                    <a href="https://hackingllms.com/" class="lab-link" target="_blank">Access Protocols →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header intermediate">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">PortSwigger LLM Labs</h2>
+                    <p class="lab-level">Intermediate-Advanced Level</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Comprehensive series of 4 LLM security labs by PortSwigger. Covers indirect prompt injection, data exfiltration, cross-user data leakage, and authentication bypass techniques.
+                    </p>
+                    <ul class="lab-features">
+                        <li>4 distinct LLM attack scenarios</li>
+                        <li>Indirect prompt injection</li>
+                        <li>Data exfiltration techniques</li>
+                        <li>Cross-user data leakage</li>
+                        <li>Authentication bypass methods</li>
+                        <li>Industry-standard lab environment</li>
+                    </ul>
+                    <a href="https://portswigger.net/web-security/llm-attacks" class="lab-link" target="_blank">Start Lab Series →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header intermediate">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">MyLLMBank</h2>
+                    <p class="lab-level">Intermediate-Advanced Level</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Advanced prompt injection challenge against chained AI agents that perform data transformation. Explore sophisticated attacks targeting multi-agent banking systems.
+                    </p>
+                    <ul class="lab-features">
+                        <li>Chained agent architectures</li>
+                        <li>Data transformation used in protection like some guardrails and classifiers</li>
+                        <li>Multi-agent prompt injection</li>
+                        <li>Banking workflow exploitation</li>
+                        <li>Agent-to-agent attack chains</li>
+                    </ul>
+                    <a href="https://myllmbank.com/" class="lab-link" target="_blank">Start Banking Challenge →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header intermediate">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">MyLLMDoc</h2>
+                    <p class="lab-level">Intermediate-Advanced Level</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Document-focused AI security challenge exploring vulnerabilities in document processing and analysis systems. Practice attacks against LLM-powered document handling applications.
+                    </p>
+                    <ul class="lab-features">
+                        <li>Document processing attacks</li>
+                        <li>File upload vulnerabilities</li>
+                        <li>Content extraction bypasses</li>
+                        <li>Document analysis exploitation</li>
+                        <li>RAG system vulnerabilities</li>
+                    </ul>
+                    <a href="https://myllmdoc.com/" class="lab-link" target="_blank">Start Document Challenge →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header intermediate">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">Auto Parts CTF</h2>
+                    <p class="lab-level">Intermediate Level</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Chained LLM-powered auto parts system with multiple vulnerability types. Features real-time WebSocket communication and API endpoints.
+                    </p>
+                    <ul class="lab-features">
+                        <li>Prompt injection attacks</li>
+                        <li>IDOR vulnerabilities</li>
+                        <li>WebSocket exploitation</li>
+                        <li>API security testing</li>
+                    </ul>
+                    <a href="http://207.244.244.11:8003" class="lab-link" target="_blank">Start Lab →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header intermediate">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">PwnGPT CTF (Instance 1)</h2>
+                    <p class="lab-level">Intermediate Level</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Comprehensive LLM prompt injection CTF with multiple levels and challenge formats. Features advanced guard bypassing techniques.
+                    </p>
+                    <ul class="lab-features">
+                        <li>Multi-level challenges</li>
+                        <li>Prompt guard evasion</li>
+                        <li>Progressive difficulty</li>
+                        <li>Flag-based progression</li>
+                    </ul>
+                    <a href="http://207.244.244.11:8009" class="lab-link" target="_blank">Start Lab →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header intermediate">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">PwnGPT CTF (Guardrails Edition)</h2>
+                    <p class="lab-level">Intermediate-Advanced Level</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Enhanced version of PwnGPT with open source guardrails protection. Learn to bypass advanced security measures and defensive AI implementations.
+                    </p>
+                    <ul class="lab-features">
+                        <li>Open source guardrails protection</li>
+                        <li>Advanced bypass techniques required</li>
+                        <li>Defensive AI mechanisms</li>
+                        <li>Real-world security measures</li>
+                        <li>Higher difficulty than Instance 1</li>
+                    </ul>
+                    <a href="http://207.244.244.11:8100" class="lab-link" target="_blank">Start Guardrails Challenge →</a>
+                </div>
+            </div>
+
+            <!-- Advanced Labs -->
+            <div class="lab-card">
+                <div class="lab-header intermediate">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">Professional Secure AI Bot</h2>
+                    <p class="lab-level">Intermediate Level</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Multi-feature secure AI platform demonstrating proper security implementations. Includes RAG, web assistance, and security demos.
+                    </p>
+                    <ul class="lab-features">
+                        <li>RAG chatbot implementation</li>
+                        <li>Text management system</li>
+                        <li>Web assistant functionality</li>
+                        <li>Security-focused design</li>
+                        <li>XSS prevention demos</li>
+                        <li><a href="https://github.com/NSIDE-ATTACK-LOGIC/Professional-Secure-AI-Bot" target="_blank" style="color: #c084fc; text-decoration: none;">📂 View Source Code</a></li>
+                    </ul>
+                    <a href="http://207.244.244.11:5050" class="lab-link" target="_blank">Start Lab →</a>
+                </div>
+            </div>
+
+
+            <!-- Specialized Tools -->
+            <div class="lab-card">
+                <div class="lab-header intermediate">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">Prompt Airlines</h2>
+                    <p class="lab-level">Intermediate Level</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        AI security CTF by Wiz featuring 5 progressive challenges where participants manipulate a customer service chatbot to earn a free airline ticket. Learn prompt injection through hands-on practice.
+                    </p>
+                    <ul class="lab-features">
+                        <li>5 progressive prompt injection challenges</li>
+                        <li>AI chatbot manipulation techniques</li>
+                        <li>System prompt leaking</li>
+                        <li>Authentication bypass methods</li>
+                        <li>Coupon code extraction</li>
+                        <li>Real-world AI vulnerability scenarios</li>
+                    </ul>
+                    <a href="https://promptairlines.com/" class="lab-link" target="_blank">Start Flight →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header specialized">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">Dreadnode Crucible</h2>
+                    <p class="lab-level">Specialized Platform</p>
+                    <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                        <span style="background: rgba(239, 68, 68, 0.8); color: white; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.65rem; font-weight: 600; text-transform: uppercase;">🔥 Advanced</span>
+                    </div>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Professional ML/AI security platform with 80+ challenges covering prompt injection, adversarial attacks, model inversion, and data poisoning. Features challenges from DEFCON, Black Hat, and GovTech competitions.
+                    </p>
+                    <ul class="lab-features">
+                        <li>80+ ML/AI security challenges</li>
+                        <li>Prompt injection & LLM escapes</li>
+                        <li>Adversarial image/audio attacks</li>
+                        <li>Model inversion & fingerprinting</li>
+                        <li>Data poisoning scenarios</li>
+                        <li>DEFCON/Black Hat competition challenges</li>
+                        <li>Interactive Jupyter notebooks</li>
+                        <li>Professional cloud platform</li>
+                    </ul>
+                    <a href="https://platform.dreadnode.io/crucible" class="lab-link" target="_blank">Access Platform →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header intermediate">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">LMQL Demo Environment</h2>
+                    <p class="lab-level">Intermediate Level</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Language Model Query Language demonstrations with specialized bots for different use cases.
+                    </p>
+                    <ul class="lab-features">
+                        <li><a href="http://207.244.244.11:8089" target="_blank" style="color: #c084fc; text-decoration: none;">General Chat Interface</a></li>
+                        <li><a href="http://207.244.244.11:8090" target="_blank" style="color: #c084fc; text-decoration: none;">Summary Bot</a></li>
+                        <li><a href="http://207.244.244.11:8091" target="_blank" style="color: #c084fc; text-decoration: none;">Analyst Bot</a></li>
+                        <li>LMQL syntax exploration</li>
+                        <li><a href="https://github.com/corysabol/prompt_injection_demos" target="_blank" style="color: #c084fc; text-decoration: none;">📂 View Source Code</a></li>
+                    </ul>
+                    <a href="http://207.244.244.11:8089" class="lab-link" target="_blank">Start with General Chat →</a>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Competitions Tab -->
+        <div id="competitions-tab" class="tab-content">
+        <div class="labs-grid">
+            <div class="lab-card">
+                <div class="lab-header intermediate">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">Pangea AI Escape Room</h2>
+                    <p class="lab-level">Intermediate-Advanced Level</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Interactive AI escape room challenge where participants use prompt injection techniques to outsmart AI chatbot supervisors and reveal secret passcodes. Features $10K competition with global leaderboard.
+                    </p>
+                    <ul class="lab-features">
+                        <li>Virtual escape room scenarios</li>
+                        <li>AI chatbot prompt injection</li>
+                        <li>Multi-level difficulty progression</li>
+                        <li>Global leaderboard competition</li>
+                        <li>Real-world prompt engineering</li>
+                        <li>Professional security platform</li>
+                    </ul>
+                    <a href="https://escape.pangea.cloud/" class="lab-link" target="_blank">Start Challenge →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header intermediate">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">RedTeam Arena</h2>
+                    <p class="lab-level">Intermediate Level</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Open-source community-driven LLM red-teaming platform featuring gamified AI security challenges. Players have 60 seconds to convince models to say target words using jailbreaking techniques.
+                    </p>
+                    <ul class="lab-features">
+                        <li>Gamified LLM red-teaming</li>
+                        <li>60-second jailbreak challenges</li>
+                        <li>Community-driven platform</li>
+                        <li>Elo scoring system</li>
+                        <li>No registration required</li>
+                        <li>Open-source codebase</li>
+                    </ul>
+                    <a href="https://redarena.ai/" class="lab-link" target="_blank">Start Game →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header advanced">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">HackAPrompt 2.0</h2>
+                    <p class="lab-level">Advanced Competition</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        World's largest AI red-teaming competition with $100,000+ prize pool by Learn Prompting & OpenAI. Multiple tracks for discovering AI vulnerabilities through jailbreaking and prompt engineering attacks.
+                    </p>
+                    <ul class="lab-features">
+                        <li>$100,000+ total prize pool</li>
+                        <li>CBRNE, Agents, and Classic GenAI tracks</li>
+                        <li>Shortest jailbreak challenges</li>
+                        <li>2-month competition duration</li>
+                        <li>Educational tutorials included</li>
+                        <li>OpenAI partnership</li>
+                    </ul>
+                    <a href="https://www.hackaprompt.com/" class="lab-link" target="_blank">Join Competition →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header intermediate">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">Gray Swan AI Arena</h2>
+                    <p class="lab-level">Intermediate Competition</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Competitive AI safety and alignment arena featuring prompt injection challenges, model evaluation, and red-teaming competitions. Test your skills against various AI models in structured competitive scenarios.
+                    </p>
+                    <ul class="lab-features">
+                        <li>Model evaluation challenges</li>
+                        <li>Prompt injection competitions</li>
+                        <li>AI safety testing scenarios</li>
+                        <li>Structured competitive format</li>
+                        <li>Multiple AI model targets</li>
+                        <li>Community-driven platform</li>
+                    </ul>
+                    <a href="https://app.grayswan.ai/arena" class="lab-link" target="_blank">Enter Arena →</a>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Bug Bounties Tab -->
+        <div id="bounties-tab" class="tab-content">
+        <div class="labs-grid">
+            <div class="lab-card">
+                <div class="lab-header specialized">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">Anthropic Bug Bounty</h2>
+                    <p class="lab-level">Professional Bounty</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Official Anthropic bug bounty program for reporting security vulnerabilities in Claude AI systems and infrastructure. Submit security findings through their responsible disclosure process.
+                    </p>
+                    <ul class="lab-features">
+                        <li>Official Anthropic program</li>
+                        <li>Claude AI system vulnerabilities</li>
+                        <li>Infrastructure security issues</li>
+                        <li>Responsible disclosure process</li>
+                        <li>Professional security research</li>
+                        <li>Direct impact on AI safety</li>
+                    </ul>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3IuyunFH1Rbz_9Bpt2kGBfwSW5QQ1TBkeAzNZrtCP-hRvNA/viewform" class="lab-link" target="_blank">Submit Report →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header specialized">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">OpenAI Bug Bounty</h2>
+                    <p class="lab-level">Professional Bounty</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        OpenAI's bug bounty program hosted on Bugcrowd for discovering security vulnerabilities in ChatGPT, GPT API, and related OpenAI services and infrastructure.
+                    </p>
+                    <ul class="lab-features">
+                        <li>Bugcrowd hosted program</li>
+                        <li>ChatGPT & GPT API scope</li>
+                        <li>OpenAI infrastructure targets</li>
+                        <li>Professional bounty rewards</li>
+                        <li>Security research community</li>
+                        <li>Industry-leading AI security</li>
+                    </ul>
+                    <a href="https://bugcrowd.com/engagements/openai" class="lab-link" target="_blank">Join Program →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header specialized">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">Google Gemini Bug Bounty</h2>
+                    <p class="lab-level">Professional Bounty</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Google's Abuse Vulnerability Reward Program for Gemini AI models and services. Part of Google's Bug Hunters program focusing on AI safety and security vulnerabilities.
+                    </p>
+                    <ul class="lab-features">
+                        <li>Google Bug Hunters program</li>
+                        <li>Gemini AI model vulnerabilities</li>
+                        <li>Abuse & safety vulnerability focus</li>
+                        <li>Professional reward structure</li>
+                        <li>Google AI services scope</li>
+                        <li>Industry-standard disclosure process</li>
+                    </ul>
+                    <a href="https://bughunters.google.com/about/rules/google-friends/5238081279623168/abuse-vulnerability-reward-program-rules" class="lab-link" target="_blank">Join Program →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header specialized">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">0din.ai - GenAI Bug Bounty</h2>
+                    <p class="lab-level">Professional Bounty</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Mozilla's 0-Day Investigative Network GenAI bug bounty program targeting vulnerabilities in large language models and generative AI systems. Rewards up to $15,000 for critical discoveries.
+                    </p>
+                    <ul class="lab-features">
+                        <li>$500 - $15,000 reward range</li>
+                        <li>Guardrail jailbreak research</li>
+                        <li>Prompt injection vulnerabilities</li>
+                        <li>Training data leakage detection</li>
+                        <li>Mozilla partnership program</li>
+                        <li>GenAI security focus</li>
+                    </ul>
+                    <a href="https://0din.ai/" class="lab-link" target="_blank">Submit Vulnerabilities →</a>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="footer">
+            <p>🛡️ AI Security Training Environment | For Educational Purposes Only</p>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tab => tab.classList.remove('active'));
+            
+            // Remove active class from all buttons
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected tab and activate button
+            document.getElementById(tabName + '-tab').classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
