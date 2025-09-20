@@ -378,7 +378,7 @@
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
-            
+
             .stats {
                 flex-direction: column;
                 align-items: center;
@@ -387,6 +387,31 @@
 
             .stat-item {
                 width: fit-content;
+            }
+
+            .tab-navigation {
+                flex-wrap: wrap;
+                max-width: 100%;
+                gap: 4px;
+            }
+
+            .tab-button {
+                flex: 1 1 auto;
+                min-width: 0;
+                font-size: 0.85rem;
+                padding: 10px 12px;
+                white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .tab-navigation {
+                padding: 4px;
+            }
+
+            .tab-button {
+                font-size: 0.75rem;
+                padding: 8px 8px;
             }
         }
 
@@ -424,7 +449,6 @@
             padding: 6px;
             backdrop-filter: blur(20px);
             border: 1px solid rgba(124, 58, 237, 0.3);
-            max-width: 400px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -478,7 +502,7 @@
         </header>
 
         <!-- Tab Navigation -->
-        <div class="tab-navigation" style="max-width: 600px;">
+        <div class="tab-navigation" style="max-width: 800px;">
             <button class="tab-button active" onclick="switchTab('labs')">Labs</button>
             <button class="tab-button" onclick="switchTab('competitions')">Competitions</button>
             <button class="tab-button" onclick="switchTab('bounties')">Bug Bounties</button>
