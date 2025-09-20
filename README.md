@@ -45,9 +45,10 @@ Essential tools for AI security testing:
 - **Spikeé** - Arcanum's AI security analysis platform
 - **PyRIT-Ship** - Burp Suite extension for AI vulnerability testing
 
-### Text Resources (1 Resource)
+### Text Resources (2 Resources)
 Research papers, taxonomies, and documentation:
 - **Arcanum Prompt Injection Taxonomy** - Comprehensive classification system for prompt injection attacks
+- **AI Pentest Questionnaire** - Structured penetration testing assessment guide for AI systems
 
 ## Getting Started
 
