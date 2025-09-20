@@ -10,7 +10,7 @@ The Arcanum AI Security Resources Hub serves as a centralized platform for AI se
 
 ## What's Included
 
-### Labs (23 Active)
+### Labs (24 Active)
 Interactive training environments and challenges covering:
 - Prompt injection techniques
 - Jailbreaking methodologies
