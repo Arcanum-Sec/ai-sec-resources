@@ -49,7 +49,7 @@ Essential tools for AI security testing:
 Research papers, taxonomies, and documentation:
 - **Arcanum Prompt Injection Taxonomy** - Comprehensive classification system for prompt injection attacks
 - **AI Pentest Questionnaire** - Structured penetration testing assessment guide for AI systems
-- **AI Security Ecosystem** - Curated collection of AI security research, tools, and community resources
+- **AI Security Ecosystem** - Enterprise AI deployment mapping for comprehensive pentesting scope identification
 
 ## Getting Started
 
