@@ -472,15 +472,16 @@
                 <div class="stat-item">21 Active Labs</div>
                 <div class="stat-item">4 Competitions</div>
                 <div class="stat-item">4 Bug Bounties</div>
-                <div class="stat-item">Multiple Difficulty Levels</div>
+                <div class="stat-item">2 Security Tools</div>
             </div>
         </header>
 
         <!-- Tab Navigation -->
-        <div class="tab-navigation">
+        <div class="tab-navigation" style="max-width: 500px;">
             <button class="tab-button active" onclick="switchTab('labs')">Labs</button>
             <button class="tab-button" onclick="switchTab('competitions')">Competitions</button>
             <button class="tab-button" onclick="switchTab('bounties')">Bug Bounties</button>
+            <button class="tab-button" onclick="switchTab('tools')">Tools/Utilities</button>
         </div>
 
         <!-- Labs Tab -->
@@ -1123,6 +1124,57 @@
                         <li>GenAI security focus</li>
                     </ul>
                     <a href="https://0din.ai/" class="lab-link" target="_blank">Submit Vulnerabilities →</a>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Tools/Utilities Tab -->
+        <div id="tools-tab" class="tab-content">
+        <div class="labs-grid">
+            <div class="lab-card">
+                <div class="lab-header specialized">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">P4RS3LT0NGV3 - Extended Edition</h2>
+                    <p class="lab-level">Prompt Injection Tool • Self-Hosted</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Extended version of P4RS3LT0NGV3 with additional payload generation techniques. Advanced prompt injection payload generator with 30+ text transformation techniques for LLM security testing and red teaming.
+                    </p>
+                    <ul class="lab-features">
+                        <li>30+ text transformation methods</li>
+                        <li>Extended payload generation techniques</li>
+                        <li>Unicode and encoding obfuscation</li>
+                        <li>Mathematical and linguistic transformations</li>
+                        <li>Real-time payload preview</li>
+                        <li>Copy-to-clipboard functionality</li>
+                        <li>Additional custom transformations</li>
+                    </ul>
+                    <a href="http://localhost:8000/parsel" class="lab-link" target="_blank">Access Local Instance →</a>
+                </div>
+            </div>
+
+            <div class="lab-card">
+                <div class="lab-header specialized">
+                    <div class="status-indicator"></div>
+                    <h2 class="lab-title">P4RS3LT0NGV3 - Original</h2>
+                    <p class="lab-level">Prompt Injection Tool • Online</p>
+                </div>
+                <div class="lab-content">
+                    <p class="lab-description">
+                        Original P4RS3LT0NGV3 by Elder Plinius. A prompt injection payload generator that creates obfuscated prompts using various text transformation techniques to test LLM security controls and filters.
+                    </p>
+                    <ul class="lab-features">
+                        <li>20+ text transformation techniques</li>
+                        <li>Leetspeak and character substitution</li>
+                        <li>ROT13 and Caesar cipher encoding</li>
+                        <li>Reverse text and word scrambling</li>
+                        <li>Homoglyph and lookalike characters</li>
+                        <li>Morse code and phonetic spelling</li>
+                        <li><a href="https://github.com/elder-plinius/P4RS3LT0NGV3" target="_blank" style="color: #c084fc; text-decoration: none;">📂 View Source Code</a></li>
+                    </ul>
+                    <a href="https://elder-plinius.github.io/P4RS3LT0NGV3/" class="lab-link" target="_blank">Access Online Tool →</a>
                 </div>
             </div>
         </div>
