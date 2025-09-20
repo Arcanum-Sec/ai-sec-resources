@@ -1,14 +1,16 @@
 # Arcanum AI Security Resources Hub
 
+**Live Site:** https://arcanum-sec.github.io/ai-sec-resources/
+
 A comprehensive collection of AI/LLM security resources including labs, competitions, bug bounties, and security tools for learning and practicing AI security concepts.
 
-## 🎯 Overview
+## Overview
 
 The Arcanum AI Security Resources Hub serves as a centralized platform for AI security professionals, researchers, and enthusiasts to discover and access various resources for learning about and testing AI/LLM security vulnerabilities.
 
-## 📚 What's Included
+## What's Included
 
-### 🧪 Labs (21 Active)
+### Labs (21 Active)
 Interactive training environments and challenges covering:
 - Prompt injection techniques
 - Jailbreaking methodologies
@@ -19,7 +21,7 @@ Interactive training environments and challenges covering:
 - RAG system vulnerabilities
 - And much more...
 
-### 🏆 Competitions (5 Active)
+### Competitions (5 Active)
 Competitive platforms for testing AI security skills:
 - **HackAPrompt 2.0** - World's largest AI red-teaming competition
 - **Pangea AI Escape Room** - Interactive escape room challenges
@@ -27,14 +29,14 @@ Competitive platforms for testing AI security skills:
 - **Gray Swan AI Arena** - AI safety and alignment competitions
 - **LLM Hacker Challenge** - Progressive difficulty challenges by All About AI
 
-### 💰 Bug Bounties (4 Programs)
+### Bug Bounties (4 Programs)
 Official vulnerability disclosure programs:
 - **Anthropic Bug Bounty** - Claude AI system vulnerabilities
 - **OpenAI Bug Bounty** - ChatGPT & GPT API security issues
 - **Google Gemini Bug Bounty** - Gemini AI model vulnerabilities
 - **0din.ai GenAI Bug Bounty** - Mozilla's generative AI security program
 
-### 🛠️ Security Tools (7 Tools)
+### Security Tools (7 Tools)
 Essential tools for AI security testing:
 - **P4RS3LT0NGV3** (Original & Extended) - Prompt injection payload generators
 - **PyRIT** - Microsoft's Python Risk Identification Tool
@@ -43,14 +45,14 @@ Essential tools for AI security testing:
 - **Spikeé** - Arcanum's AI security analysis platform
 - **PyRIT-Ship** - Burp Suite extension for AI vulnerability testing
 
-## 🚀 Getting Started
+## Getting Started
 
-1. Visit the live site: [AI Security Resources Hub](https://your-domain.com)
+1. Visit the live site: [AI Security Resources Hub](https://arcanum-sec.github.io/ai-sec-resources/)
 2. Browse through the different categories using the tab navigation
 3. Click on any resource to access the tool, lab, or competition
 4. Start with beginner-level resources and progress to advanced challenges
 
-## 🏗️ Local Development
+## Local Development
 
 To run this project locally:
 
@@ -69,7 +71,7 @@ python -m http.server 8080
 npx serve .
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ai-security-labs-pages/
@@ -78,7 +80,7 @@ ai-security-labs-pages/
 └── .git/              # Git repository data
 ```
 
-## 🎨 Features
+## Features
 
 - **Responsive Design** - Works on desktop, tablet, and mobile devices
 - **Tab Navigation** - Organized content across Labs, Competitions, Bug Bounties, and Tools
@@ -87,7 +89,7 @@ ai-security-labs-pages/
 - **External Links** - Direct access to all platforms and tools
 - **Progressive Difficulty** - Resources organized by skill level
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions to expand and improve the resource collection! To contribute:
 
@@ -105,24 +107,24 @@ When adding new resources, please ensure:
 - Appropriate difficulty level classification
 - Consistent formatting with existing entries
 
-## 📝 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 🛡️ Disclaimer
+## Disclaimer
 
 This resource hub is intended for educational and authorized security testing purposes only. Always ensure you have proper authorization before testing any AI systems or applications.
 
-## 📧 Contact
+## Contact
 
 - **Project Maintainer**: Arcanum Security
 - **Issues**: Please report issues via GitHub Issues
 - **Website**: [Arcanum Security](https://arcanum-sec.com)
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 Special thanks to all the security researchers, organizations, and content creators who have contributed to the AI security community by creating and maintaining these valuable resources.
 
 ---
 
-⭐ If you find this resource hub useful, please consider starring the repository!
+If you find this resource hub useful, please consider starring the repository!
