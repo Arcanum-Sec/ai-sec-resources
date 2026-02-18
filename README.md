@@ -10,7 +10,7 @@ The Arcanum AI Security Resources Hub serves as a centralized platform for AI se
 
 ## What's Included
 
-### Labs (23 Active)
+### Labs (24 Active)
 Interactive training environments and challenges covering:
 - Prompt injection techniques
 - Jailbreaking methodologies
@@ -45,7 +45,7 @@ Essential tools for AI security testing:
 - **Spikeé** - Arcanum's AI security analysis platform
 - **PyRIT-Ship** - Burp Suite extension for AI vulnerability testing
 
-### Text Resources (3 Resources)
+### Text Resources (4 Resources)
 Research papers, taxonomies, and documentation:
 - **Arcanum Prompt Injection Taxonomy** - Comprehensive classification system for prompt injection attacks
 - **AI Pentest Questionnaire** - Structured penetration testing assessment guide for AI systems
