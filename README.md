@@ -50,12 +50,18 @@ The Arcanum Prompt Injection Taxonomy, AI Pentest Questionnaire, and AI Security
 
 ## Contributing
 
-Contributions that add **free or self-hostable** AI security resources are welcome:
+Contributions that add **free or self-hostable** AI security resources are welcome. There are two ways to suggest something:
+
+**Just open an issue.** Point us at the resource (a link is enough, more context is better) and we will review it and add it ourselves, crediting you in the [CHANGELOG](CHANGELOG.md). This is the easiest path if you do not want to touch the code.
+
+**Or open a pull request:**
 
 1. Fork the repository.
 2. Add an object to the `RESOURCES` array in `index.html` (`cat`, `title`, `meta`, `url`, `action`, `desc`, `features`, optional `tags`). Counts and filters update automatically.
 3. Verify the link is live and the resource is genuinely AI/LLM security material.
-4. Open a pull request. Please do not add paid courses or training subscriptions.
+4. Open a pull request.
+
+Either way, please keep it to free or self-hostable resources. No paid courses or training subscriptions.
 
 ## Changelog
 
