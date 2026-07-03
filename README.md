@@ -1,136 +1,91 @@
-# Arcanum AI Security Resources Hub
+<div align="center">
 
-**Live Site:** https://arcanum-sec.github.io/ai-sec-resources/
+<img src="arcanum-wordmark.png" alt="Arcanum Information Security" width="360">
 
-A comprehensive collection of AI/LLM security resources including labs, competitions, bug bounties, and security tools for learning and practicing AI security concepts.
+# AI Security Resource Hub
 
-## Overview
+**A curated, always-current directory of free and self-hostable AI/LLM security labs, CTFs, competitions, bug bounties, tools, and references.**
 
-The Arcanum AI Security Resources Hub serves as a centralized platform for AI security professionals, researchers, and enthusiasts to discover and access various resources for learning about and testing AI/LLM security vulnerabilities.
+[![Live site](https://img.shields.io/badge/Live-arcanum--sec.github.io%2Fai--sec--resources-BA258A.svg)](https://arcanum-sec.github.io/ai-sec-resources/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-interactive-9966CC.svg)](https://arcanum-sec.github.io/ai-sec-resources/)
+[![Version](https://img.shields.io/badge/version-2.0-562997.svg)](CHANGELOG.md)
+![Resources](https://img.shields.io/badge/resources-79-3fb950.svg)
+![Use](https://img.shields.io/badge/use-educational%20%26%20authorized-8b5cf6.svg)
 
-## What's Included
-
-### Labs (23 Active)
-Interactive training environments and challenges covering:
-- Prompt injection techniques
-- Jailbreaking methodologies
-- Indirect prompt injection
-- Data exfiltration attacks
-- Cross-user data leakage
-- Authentication bypass methods
-- RAG system vulnerabilities
-- And much more...
-
-### Competitions (5 Active)
-Competitive platforms for testing AI security skills:
-- **HackAPrompt 2.0** - World's largest AI red-teaming competition
-- **Pangea AI Escape Room** - Interactive escape room challenges
-- **RedTeam Arena** - Community-driven LLM red-teaming
-- **Gray Swan AI Arena** - AI safety and alignment competitions
-- **LLM Hacker Challenge** - Progressive difficulty challenges by All About AI
-
-### Bug Bounties (4 Programs)
-Official vulnerability disclosure programs:
-- **Anthropic Bug Bounty** - Claude AI system vulnerabilities
-- **OpenAI Bug Bounty** - ChatGPT & GPT API security issues
-- **Google Gemini Bug Bounty** - Gemini AI model vulnerabilities
-- **0din.ai GenAI Bug Bounty** - Mozilla's generative AI security program
-
-### Security Tools (7 Tools)
-Essential tools for AI security testing:
-- **P4RS3LT0NGV3** (Original & Extended) - Prompt injection payload generators
-- **PyRIT** - Microsoft's Python Risk Identification Tool
-- **Garak** - NVIDIA's comprehensive LLM vulnerability scanner
-- **Promptfoo** - LLM testing and red teaming framework
-- **Spikeé** - Arcanum's AI security analysis platform
-- **PyRIT-Ship** - Burp Suite extension for AI vulnerability testing
-
-### Text Resources (3 Resources)
-Research papers, taxonomies, and documentation:
-- **Arcanum Prompt Injection Taxonomy** - Comprehensive classification system for prompt injection attacks
-- **AI Pentest Questionnaire** - Structured penetration testing assessment guide for AI systems
-- **AI Security Ecosystem** - Enterprise AI deployment mapping for comprehensive pentesting scope identification
-
-## Getting Started
-
-1. Visit the live site: [AI Security Resources Hub](https://arcanum-sec.github.io/ai-sec-resources/)
-2. Browse through the different categories using the tab navigation
-3. Click on any resource to access the tool, lab, or competition
-4. Start with beginner-level resources and progress to advanced challenges
-
-## Local Development
-
-To run this project locally:
-
-```bash
-# Clone the repository
-git clone https://github.com/Arcanum-Sec/ai-sec-resources.git
-
-# Navigate to the project directory
-cd ai-sec-resources
-
-# Serve the files using any web server
-# For example, using Python's built-in server:
-python -m http.server 8080
-
-# Or using Node.js serve:
-npx serve .
-```
-
-## Project Structure
-
-```
-ai-security-labs-pages/
-├── index.html          # Main application file with all content
-├── README.md           # This file
-└── .git/              # Git repository data
-```
-
-## Features
-
-- **Responsive Design** - Works on desktop, tablet, and mobile devices
-- **Tab Navigation** - Organized content across Labs, Competitions, Bug Bounties, and Tools
-- **Search-Friendly** - Easy to find specific resources
-- **Visual Status Indicators** - Live status indicators for each resource
-- **External Links** - Direct access to all platforms and tools
-- **Progressive Difficulty** - Resources organized by skill level
-
-## Contributing
-
-We welcome contributions to expand and improve the resource collection! To contribute:
-
-1. Fork the repository
-2. Add new resources to the appropriate section in `index.html`
-3. Update the stats counters if adding new items
-4. Test your changes locally
-5. Submit a pull request with a clear description
-
-### Adding New Resources
-
-When adding new resources, please ensure:
-- Accurate descriptions and feature lists
-- Working links to the actual resources
-- Appropriate difficulty level classification
-- Consistent formatting with existing entries
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## Disclaimer
-
-This resource hub is intended for educational and authorized security testing purposes only. Always ensure you have proper authorization before testing any AI systems or applications.
-
-## Contact
-
-- **Project Maintainer**: Arcanum Security
-- **Issues**: Please report issues via GitHub Issues
-- **Website**: [Arcanum Security](https://arcanum-sec.com)
-
-## Acknowledgments
-
-Special thanks to all the security researchers, organizations, and content creators who have contributed to the AI security community by creating and maintaining these valuable resources.
+</div>
 
 ---
 
-If you find this resource hub useful, please consider starring the repository!
+## Overview
+
+The AI Security Resource Hub is a single place to find hands-on material for learning and practicing AI/LLM security: prompt injection, jailbreaks, agent and MCP exploitation, RAG attacks, guardrail bypass, and more. Every entry is **free to use or self-hostable**. Paid courses and training subscriptions are intentionally left out.
+
+**Live, interactive site:** https://arcanum-sec.github.io/ai-sec-resources/
+
+The site is a single self-contained page with live search, category filters, and click-to-open detail cards, styled to match the [Arcanum Prompt Injection Taxonomy](https://www.arcanum-sec.com/pitax).
+
+## What's inside
+
+| Category | Count | Description |
+|---|---:|---|
+| **Labs** | 47 | Hands-on labs, CTFs, and vulnerable apps, including MCP and agent targets |
+| **Competitions** | 7 | Gamified arenas and jailbreak/red-team competitions |
+| **Bug Bounties** | 5 | Programs that pay for AI/LLM vulnerabilities |
+| **Tools & Utilities** | 13 | Scanners, frameworks, and payload generators |
+| **Text Resources** | 7 | Taxonomies, questionnaires, benchmarks, and references |
+| **Total** | **79** | |
+
+### Labs (47)
+Hosted challenges and self-hostable vulnerable apps covering prompt injection (direct and indirect), jailbreaking, data exfiltration, RAG poisoning, guardrail bypass, and agent/MCP exploitation. Includes staples like Gandalf, HackMerlin, GPT Prompt Attack, PortSwigger's Web LLM labs, and Prompt Airlines, alongside self-hosted suites such as the Black Hills AI-CTF, AISecOps Labs, LLMGoat, Bishop Fox's Local LLM CTF, and the Damn Vulnerable MCP/agent projects.
+
+### Competitions (7)
+Ongoing and recurring competitions and arenas: HackAPrompt 2.0, Gray Swan AI Arena, RedTeam Arena, Pangea AI Escape Room, LLMail-Inject, the SaTML LLM CTF, and Alignment Arena.
+
+### Bug Bounties (5)
+Official AI vulnerability programs: Anthropic, OpenAI, Google Gemini, Mozilla 0din, and huntr (Protect AI).
+
+### Tools & Utilities (13)
+Red-team and testing frameworks and scanners, including Praetorian's Augustus and Julius, NVIDIA garak, Microsoft PyRIT, Promptfoo, Giskard, CyberArk FuzzyAI, DeepTeam, NeMo Guardrails, and P4RS3LT0NGV3.
+
+### Text Resources (7)
+The Arcanum Prompt Injection Taxonomy, AI Pentest Questionnaire, and AI Security Ecosystem, plus community awesome-lists, JailbreakBench, and the seminal indirect-injection demos.
+
+## Design
+
+The hub uses the Arcanum dark amethyst theme (Inter + JetBrains Mono, grid background, wordmark masthead) shared with the PITAX taxonomy. Cards are data-driven: add an entry to the `RESOURCES` array in `index.html` and it renders, counts, filters, and searches automatically.
+
+## Local development
+
+```bash
+git clone https://github.com/Arcanum-Sec/ai-sec-resources.git
+cd ai-sec-resources
+python -m http.server 8099
+# open http://127.0.0.1:8099/
+```
+
+## Contributing
+
+Contributions that add **free or self-hostable** AI security resources are welcome:
+
+1. Fork the repository.
+2. Add an object to the `RESOURCES` array in `index.html` (`cat`, `title`, `meta`, `url`, `action`, `desc`, `features`, optional `tags`). Counts and filters update automatically.
+3. Verify the link is live and the resource is genuinely AI/LLM security material.
+4. Open a pull request. Please do not add paid courses or training subscriptions.
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md). Latest release: **v2.0**, a full redesign and content overhaul (79 resources).
+
+## Disclaimer
+
+For educational and authorized security testing only. Always get proper authorization before testing any AI system or application.
+
+## Attribution
+
+Curated by **Jason Haddix, Arcanum Information Security**. Website: https://arcanum-sec.com
+
+<div align="center">
+
+If this hub is useful, please consider starring the repository.
+
+</div>
