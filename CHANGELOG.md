@@ -2,6 +2,19 @@
 
 All notable changes to the AI Security Resource Hub are documented here.
 
+## v2.1 - 2026-07-02
+
+Added 24 free/self-hostable labs and CTFs found through a research pass across cybersecurity Reddit, GitHub, and X/Twitter. Total resources: 103.
+
+### Added
+- **Agentic and MCP labs:** GitHub Secure Code Game Season 4 (agentic AI), AgentDojo (ETH Zurich SPY Lab), OWASP PromptMe, Vulnerable MCP Server (aganita), otto-support MCP CTF (Bishop Fox), MCP Ethical Hacking, and the Trail of Bits aifirst-insecure-agent-labs.
+- **Self-hosted CTFs and vulnerable apps:** ctf-prompt-injection (CharlesTheGreat77), AIGoat (AI Security Consortium), prompt-injection-lab (txdadlab), llm-sec-range, DEF CON CTF 2023 Quals (pawan_gupta), LLM-Security-CTF (TrustAI), multiAiCtf, JailbreakLab, Machine Learning CTF Challenges, and ai_for_the_win.
+- **Hosted challenges and games:** PromptInjects, CrowdStrike AI Unlocked, PromptTrace, Invariant Labs Agent CTF 2024, Steve's Chat Playground, Wild LLaMa, and ggrank "Password Please".
+- Sources credited: Reddit (r/netsec and related), GitHub repo/topic/awesome-list mining, and X/Twitter (via getxapi), including Trail of Bits and Bishop Fox releases surfaced on X.
+
+### Notes
+- All additions are free or self-hostable, deduped against the existing catalog, and link-checked live before inclusion.
+
 ## v2.0 - 2026-07-02
 
 A full redesign and content overhaul. The hub grew from a small tabbed list into a searchable, data-driven directory of 79 free and self-hostable AI security resources.

@@ -8,8 +8,8 @@
 
 [![Live site](https://img.shields.io/badge/Live-arcanum--sec.github.io%2Fai--sec--resources-BA258A.svg)](https://arcanum-sec.github.io/ai-sec-resources/)
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-interactive-9966CC.svg)](https://arcanum-sec.github.io/ai-sec-resources/)
-[![Version](https://img.shields.io/badge/version-2.0-562997.svg)](CHANGELOG.md)
-![Resources](https://img.shields.io/badge/resources-79-3fb950.svg)
+[![Version](https://img.shields.io/badge/version-2.1-562997.svg)](CHANGELOG.md)
+![Resources](https://img.shields.io/badge/resources-103-3fb950.svg)
 ![Use](https://img.shields.io/badge/use-educational%20%26%20authorized-8b5cf6.svg)
 
 </div>
@@ -28,14 +28,14 @@ The site is a single self-contained page with live search, category filters, and
 
 | Category | Count | Description |
 |---|---:|---|
-| **Labs** | 47 | Hands-on labs, CTFs, and vulnerable apps, including MCP and agent targets |
+| **Labs** | 71 | Hands-on labs, CTFs, and vulnerable apps, including MCP and agent targets |
 | **Competitions** | 7 | Gamified arenas and jailbreak/red-team competitions |
 | **Bug Bounties** | 5 | Programs that pay for AI/LLM vulnerabilities |
 | **Tools & Utilities** | 13 | Scanners, frameworks, and payload generators |
 | **Text Resources** | 7 | Taxonomies, questionnaires, benchmarks, and references |
-| **Total** | **79** | |
+| **Total** | **103** | |
 
-### Labs (47)
+### Labs (71)
 Hosted challenges and self-hostable vulnerable apps covering prompt injection (direct and indirect), jailbreaking, data exfiltration, RAG poisoning, guardrail bypass, and agent/MCP exploitation. Includes staples like Gandalf, HackMerlin, GPT Prompt Attack, PortSwigger's Web LLM labs, and Prompt Airlines, alongside self-hosted suites such as the Black Hills AI-CTF, AISecOps Labs, LLMGoat, Bishop Fox's Local LLM CTF, and the Damn Vulnerable MCP/agent projects.
 
 ### Competitions (7)
