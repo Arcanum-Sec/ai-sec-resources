@@ -22,8 +22,6 @@ The AI Security Resource Hub is a single place to find hands-on material for lea
 
 **Live, interactive site:** https://arcanum-sec.github.io/ai-sec-resources/
 
-The site is a single self-contained page with live search, category filters, and click-to-open detail cards, styled to match the [Arcanum Prompt Injection Taxonomy](https://www.arcanum-sec.com/pitax).
-
 ## What's inside
 
 | Category | Count | Description |
