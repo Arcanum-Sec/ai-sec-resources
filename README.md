@@ -48,19 +48,6 @@ Red-team and testing frameworks and scanners, including Praetorian's Augustus an
 ### Text Resources (7)
 The Arcanum Prompt Injection Taxonomy, AI Pentest Questionnaire, and AI Security Ecosystem, plus community awesome-lists, JailbreakBench, and the seminal indirect-injection demos.
 
-## Design
-
-The hub uses the Arcanum dark amethyst theme (Inter + JetBrains Mono, grid background, wordmark masthead) shared with the PITAX taxonomy. Cards are data-driven: add an entry to the `RESOURCES` array in `index.html` and it renders, counts, filters, and searches automatically.
-
-## Local development
-
-```bash
-git clone https://github.com/Arcanum-Sec/ai-sec-resources.git
-cd ai-sec-resources
-python -m http.server 8099
-# open http://127.0.0.1:8099/
-```
-
 ## Contributing
 
 Contributions that add **free or self-hostable** AI security resources are welcome:
