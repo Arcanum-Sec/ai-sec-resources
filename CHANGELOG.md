@@ -2,6 +2,11 @@
 
 All notable changes to the AI Security Resource Hub are documented here.
 
+## v2.2 - 2026-07-02
+
+### Changed
+- Expanded the **PromptTrace** entry with its full scope: 10 attack labs (direct injection, RAG poisoning, tool abuse, defense bypass, agentic), the 15-level "The Gauntlet" CTF, the Context Trace prompt-stack visualization, and OWASP LLM + Agentic Top 10 alignment. Thanks to **@K4r1it0** for the community contribution (first submission via the issue path).
+
 ## v2.1 - 2026-07-02
 
 Added 24 free/self-hostable labs and CTFs found through a research pass across cybersecurity Reddit, GitHub, and X/Twitter. Total resources: 103.

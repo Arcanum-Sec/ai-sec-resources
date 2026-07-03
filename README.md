@@ -8,7 +8,7 @@
 
 [![Live site](https://img.shields.io/badge/Live-arcanum--sec.github.io%2Fai--sec--resources-BA258A.svg)](https://arcanum-sec.github.io/ai-sec-resources/)
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-interactive-9966CC.svg)](https://arcanum-sec.github.io/ai-sec-resources/)
-[![Version](https://img.shields.io/badge/version-2.1-562997.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-2.2-562997.svg)](CHANGELOG.md)
 ![Resources](https://img.shields.io/badge/resources-103-3fb950.svg)
 ![Use](https://img.shields.io/badge/use-educational%20%26%20authorized-8b5cf6.svg)
 
